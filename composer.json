@@ -76,34 +76,34 @@
     },
     "scripts": {
         "cs": [
-            "vendor\\bin\\phpcbf -p --ignore=./tests/_support/* ./src/ ./tests/ && vendor\\bin\\phpcs -p --ignore=./tests/_support/* ./src/ ./tests/"
+            "vendor/bin/phpcbf -p --ignore=./tests/_support/* ./src/ ./tests/ && vendor/bin/phpcs -p --ignore=./tests/_support/* ./src/ ./tests/"
         ],
         "analyze": [
-            "vendor\\bin\\phpstan analyze --level=max && vendor\\bin\\psalm"
+            "vendor/bin/phpstan analyze --level=max && vendor/bin/psalm"
         ],
         "unit": [
-            "vendor\\bin\\codecept run unit && vendor\\bin\\infection --threads=4",
+            "vendor/bin/codecept run unit && vendor/bin/infection --threads=4",
             "@clean"
         ],
         "unit:debug": [
-            "vendor\\bin\\codecept run unit --debug",
+            "vendor/bin/codecept run unit --debug",
             "@clean"
         ],
         "unit:debug:coverage": [
-            "vendor\\bin\\codecept run unit --debug --coverage-text",
+            "vendor/bin/codecept run unit --debug --coverage-text",
             "@clean"
         ],
         "bench": [
-            "vendor\\bin\\phpbench run --report=performance"
+            "vendor/bin/phpbench run --report=performance"
         ],
         "metrics": [
-            "vendor\\bin\\phpmetrics --report-html='./tests/_output/report' ./src"
+            "vendor/bin/phpmetrics --report-html='./tests/_output/report' ./src"
         ],
         "insights": [
-            "vendor\\bin\\phpinsights"
+            "vendor/bin/phpinsights"
         ],
         "clean": [
-            "vendor\\bin\\codecept clean"
+            "vendor/bin/codecept clean"
         ],
         "json": [
             "ItalyStrap\\ThemeJsonGenerator\\ComposerPlugin::run"
@@ -112,5 +112,12 @@
     "support"    : {
         "issues": "https://github.com/ItalyStrap/theme-json-generator/issues",
         "source": "https://github.com/ItalyStrap/theme-json-generator"
+    },
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": true,
+            "codeception/c3": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
